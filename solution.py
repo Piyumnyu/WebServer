@@ -33,7 +33,8 @@ def webServer(port=13331):
         #Send the content of the requested file to the client
         for i in range(0, len(outputdata)):
           connectionSocket.send(outputdata[i].encode())
-        connectionSocket.send("HTTP/1.1 200 OK\r\n".encode())
+        connectionMessage = "HTTP/1.1 200 OK"
+        connectionSocket.send(connectionMessage.encode())
         connectionSocket.close()
 
       except IOError:
