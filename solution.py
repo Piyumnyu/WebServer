@@ -7,8 +7,10 @@ import sys
 
 def webServer(port=13331):
   serverSocket = socket(AF_INET, SOCK_STREAM)
+  name= socket.gethostname()
+  ip = (socket.gethostbyname(name))
   #Prepare a server socket
-  serverSocket.bind(("192.168.80.1", port))
+  serverSocket.bind((ip, port))
   #Fill in start
   serverSocket.listen(1)
   print('The server is ready to receive')
