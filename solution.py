@@ -1,4 +1,5 @@
 # import socket module
+import socket
 from socket import *
 # In order to terminate the program
 import sys
@@ -6,10 +7,13 @@ import sys
 
 def webServer(port=13331):
   serverSocket = socket(AF_INET, SOCK_STREAM)
+  name = socket.gethostname()
+  adr=socket.gethostbyname(name)
+  port=1234
   #Prepare a server socket
-  serverSocket.bind(("localhost", port))
+  serverSocket.bind((adr.port))
   #Fill in start
-
+  serverSocket.listen(1)
   #Fill in end
 
   while True:
