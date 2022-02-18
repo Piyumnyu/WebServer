@@ -6,14 +6,14 @@ import sys
 
 
 def webServer(port=13331):
+  serverPort=15000
   serverSocket = socket(AF_INET, SOCK_STREAM)
-  name = socket.gethostname()
-  adr=socket.gethostbyname(name)
-  port=1234
+
   #Prepare a server socket
-  serverSocket.bind((adr.port))
+  serverSocket.bind(('',serverPort))
   #Fill in start
   serverSocket.listen(1)
+  print('The server is ready to receive')
   #Fill in end
 
   while True:
@@ -23,7 +23,7 @@ def webServer(port=13331):
     try:
 
       try:
-        message = connectionSocket.recv(1024)
+        message = connectionSocket.recv(1024).decode()
         filename = message.split()[1]
         f = open(filename[1:])
         outputdata = f.read()
