@@ -7,9 +7,9 @@ import sys
 
 def webServer(port=13331):
   serverSocket = socket(AF_INET, SOCK_STREAM)
-
+  serverPort=2000
   #Prepare a server socket
-  serverSocket.bind(("", port))
+  serverSocket.bind(("",ServerPort))
   #Fill in start
   serverSocket.listen(1)
   print('The server is ready to receive')
